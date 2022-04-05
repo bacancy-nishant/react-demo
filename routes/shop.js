@@ -3,6 +3,7 @@ const express = require("express");
 
 // const rootDir = require("../utils/path");
 const productController = require("../controllers/products");
+const apiController = require("../controllers/api/products")
 
 const router = express.Router();
 
@@ -21,5 +22,10 @@ router.post('/remove-cart-item',productController.removeCartItem);
 router.get('/checkout',productController.getCheckout);
 
 router.get('/orders',productController.getOrders);
+//API
+router.get('/api/product-list',apiController.getProducts);
+router.get('/api/product/:id',apiController.getProduct);
+
+
 
 module.exports = router;
